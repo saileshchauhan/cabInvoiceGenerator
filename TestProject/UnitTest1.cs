@@ -32,6 +32,19 @@ namespace TestProject
             InvoiceSummary expectedSummary = new InvoiceSummary(2, 30.0);
             Assert.AreEqual(expectedSummary.GetType(), summary.GetType());
         }
+        [Test]
+        public void GivenMutipleEnhancedInvoice_ShouldReturn_TotalRides_TotalFare_AverageFarePerRide()
+        {
+            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 3) };
+            //Arrange
+            InvoiceSummary enhancedSummary = invoiceGenerator.CalculateFare(rides);
+            InvoiceSummary expectedEnhancedSummary = new InvoiceSummary(2, 30);
+            bool checkEquality = enhancedSummary.Equals(expectedEnhancedSummary);
+            //Assert
+            Assert.IsTrue(checkEquality);
+        }
+
     }
 
 
