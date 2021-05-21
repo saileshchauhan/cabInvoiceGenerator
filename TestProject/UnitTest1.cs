@@ -10,7 +10,6 @@ namespace TestProject
         public void Setup()
         {
         }
-
         [Test]
         public void GivenDistanceAndTimeShouldReturnTotalFare()
         {
@@ -24,7 +23,6 @@ namespace TestProject
             // Assert
             Assert.AreEqual(expected, fare);
         }
-
     }
 
 
