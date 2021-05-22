@@ -6,12 +6,16 @@ namespace cabinvoiceGenerator
 {
     public class InvoiceGenerator
     {
-        RideType rideType;
-        private RideRepository rideRepository;
+        readonly RideType rideType;
+        private readonly RideRepository rideRepository;
         private readonly double MINIMUM_COST_PER_KM;
         private readonly int COST_PER_TIME;
         private readonly double MINIMUM_FARE;
 
+        public RideRepository ToAccess_rideRepository()
+        {
+            return rideRepository;
+        }
         public InvoiceGenerator(RideType rideType)
         {
             this.rideType = rideType;
