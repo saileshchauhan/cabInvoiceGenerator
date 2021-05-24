@@ -71,5 +71,12 @@ namespace TestProject
             //Assert
             Assert.AreEqual(CabInvoiceException.ExceptionType.INVALID_USER_ID, execption.etype);
         }
+        [Test]
+        public void GivenWrongRideParameters_WhenRead_ShouldReturn_Exception_INVALID_RIDE_TYPE()
+        {
+            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            var exception = Assert.Throws<CabInvoiceException>(() => invoiceGenerator.CalculateFare(-45, -3));
+            Assert.AreEqual(CabInvoiceException.ExceptionType.INVALID_DISTANCE, exception.etype);
+        }
     }
 }
