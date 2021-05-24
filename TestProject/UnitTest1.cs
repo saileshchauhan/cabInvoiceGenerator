@@ -40,9 +40,8 @@ namespace TestProject
             //Arrange
             InvoiceSummary enhancedSummary = invoiceGenerator.CalculateFare(rides);
             InvoiceSummary expectedEnhancedSummary = new InvoiceSummary(2, 30);
-            bool checkEquality = enhancedSummary.Equals(expectedEnhancedSummary);
             //Assert
-            Assert.IsTrue(checkEquality);
+            Assert.AreEqual(expectedEnhancedSummary, enhancedSummary);
         }
         [Test]
         public void GivenUserId_ShouldReturn_RideListAndInvoice()
@@ -60,6 +59,17 @@ namespace TestProject
             InvoiceSummary expectedInvoice_For_Person1 = new InvoiceSummary(3, 65);
             // Assert
             Assert.AreEqual(expectedInvoice_For_Person1, invoiceReturn_For_Person1);
+        }
+        [Test]
+        public void GivenWrongInput_wronguserkey_WhenRead_ShouldReturn_Exception_INVALID_ID()
+        {
+            //Act
+            string userID = "noPerson";
+            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            //Arrange
+            var execption = Assert.Throws<CabInvoiceException>(() => invoiceGenerator.GetInvoiceSummary(userID));
+            //Assert
+            Assert.AreEqual(CabInvoiceException.ExceptionType.INVALID_USER_ID, execption.etype);
         }
     }
 }

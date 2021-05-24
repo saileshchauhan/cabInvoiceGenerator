@@ -26,7 +26,7 @@ namespace cabinvoiceGenerator
             }
             catch (CabInvoiceException)
             {
-                throw new CabInvoiceException(CabInvoiceException.ExceptionType.NULL_RIDES, "Rides are null");
+                throw new CabInvoiceException("Rides are null",CabInvoiceException.ExceptionType.NULL_RIDES);
             }
         }
 
@@ -39,7 +39,7 @@ namespace cabinvoiceGenerator
             }
             catch (Exception)
             {
-                throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_USER_ID, "Invalid user ID");
+                throw new CabInvoiceException("Invalid user ID",CabInvoiceException.ExceptionType.INVALID_USER_ID);
             }
         }
 

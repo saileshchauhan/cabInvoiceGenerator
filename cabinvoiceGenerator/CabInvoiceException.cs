@@ -4,7 +4,7 @@ using System.Text;
 
 namespace cabinvoiceGenerator
 {
-    class CabInvoiceException : Exception
+ public class CabInvoiceException : Exception
     {
         public enum ExceptionType
         {
@@ -15,10 +15,10 @@ namespace cabinvoiceGenerator
             INVALID_USER_ID
         }
 
-        ExceptionType type;
-        public CabInvoiceException(ExceptionType type, string message) : base(message)
+        public ExceptionType etype;
+        public CabInvoiceException(string message,ExceptionType etype) : base(message)
         {
-            this.type = type;
+            this.etype = etype;
         }
     }
 

@@ -38,7 +38,7 @@ namespace cabinvoiceGenerator
             }
             catch (CabInvoiceException)
             {
-                throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_RIDE_TYPE, "Invalid ride type");
+                throw new CabInvoiceException("Invalid ride type",CabInvoiceException.ExceptionType.INVALID_RIDE_TYPE);
             }
         }
 
@@ -53,15 +53,15 @@ namespace cabinvoiceGenerator
             {
                 if (rideType.Equals(null))
                 {
-                    throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_RIDE_TYPE, "Invalid ride type");
+                    throw new CabInvoiceException("Invalid ride type",CabInvoiceException.ExceptionType.INVALID_RIDE_TYPE);
                 }
                 if (distance <= 0)
                 {
-                    throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_DISTANCE, "Invalid distance");
+                    throw new CabInvoiceException("Invalid distance",CabInvoiceException.ExceptionType.INVALID_DISTANCE);
                 }
                 if (time < 0)
                 {
-                    throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_TIME, "Invalid time");
+                    throw new CabInvoiceException("Invalid time",CabInvoiceException.ExceptionType.INVALID_TIME);
 
                 }
             }
@@ -84,7 +84,7 @@ namespace cabinvoiceGenerator
             {
                 if (rides == null)
                 {
-                    throw new CabInvoiceException(CabInvoiceException.ExceptionType.NULL_RIDES, "rides are null");
+                    throw new CabInvoiceException("rides are null",CabInvoiceException.ExceptionType.NULL_RIDES);
                 }
 
             }
@@ -99,7 +99,7 @@ namespace cabinvoiceGenerator
             }
             catch (CabInvoiceException)
             {
-                throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_USER_ID, "Invalid user id");
+                throw new CabInvoiceException("Invalid user id",CabInvoiceException.ExceptionType.INVALID_USER_ID);
             }
         }
 
